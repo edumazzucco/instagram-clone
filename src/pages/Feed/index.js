@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { View, FlatList } from 'react-native';
 import { Post, Header, Avatar, Name, PostImage, Description } from './styles';
 
-// import { Container } from './styles';
-
 export default function Feed() {
   const [feed, setFeed ] = useState([]);
 
   useEffect(() => {
     async function loadFeed() {
-      const response = await fetch('http://localhost:3000/feed?_expand=author&_limit5&_page=1'
+      const response = await fetch(
+        'http://localhost:3000/feed?_expand=author&_limit5&_page=1'
       );
 
       const data = await response.json();
